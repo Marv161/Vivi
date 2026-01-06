@@ -52,7 +52,7 @@
             50% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* --- Efecto Especial Vivi (Sin cortes y con brillo) --- */
+        /* --- Efecto Especial Vivi --- */
         .vivi-name-effect {
             font-family: 'Great Vibes', cursive;
             background: linear-gradient(90deg, 
@@ -95,8 +95,8 @@
 
         .btn-enter {
             position: relative;
-            padding: 15px 50px;
-            font-size: 1.2rem;
+            padding: 15px 60px;
+            font-size: 1.3rem;
             font-weight: 600;
             color: #fff;
             background: rgba(184, 0, 230, 0.2);
@@ -107,11 +107,14 @@
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             box-shadow: 0 0 20px rgba(184, 0, 230, 0.2);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .btn-enter:hover {
             transform: scale(1.05);
             background: rgba(184, 0, 230, 0.4);
+            box-shadow: 0 0 30px rgba(184, 0, 230, 0.5);
         }
 
         #main-content {
@@ -135,7 +138,7 @@
             border: 1px solid rgba(178, 131, 172, 0.3);
             border-radius: 50px;
             width: 100%;
-            max-width: 500px;
+            max-width: 520px;
             padding: 40px 25px;
             text-align: center;
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
@@ -143,7 +146,9 @@
             overflow-y: auto;
         }
 
-        .glass-card::-webkit-scrollbar { width: 0; display: none; }
+        .glass-card::-webkit-scrollbar { width: 4px; }
+        .glass-card::-webkit-scrollbar-track { background: transparent; }
+        .glass-card::-webkit-scrollbar-thumb { background: var(--lavender-deep); border-radius: 10px; }
 
         .name-luxury {
             font-size: 4rem;
@@ -217,8 +222,8 @@
 
         .friend-circle {
             position: relative;
-            width: 70px;
-            height: 70px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             background: rgba(132, 94, 128, 0.3);
             border: 2px solid var(--lavender-light);
@@ -235,11 +240,11 @@
         }
 
         .friend-link {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--lavender-light);
             text-decoration: none;
             background: rgba(132, 94, 128, 0.5);
-            padding: 2px 12px;
+            padding: 2px 10px;
             border-radius: 20px;
             transition: all 0.3s;
         }
@@ -259,34 +264,12 @@
             color: white;
             transition: 0.3s;
         }
-
-        /* Tooltip para el nombre de la canción */
-        .audio-control::after {
-            content: 'We can’t stop - Miley Cyrus';
-            position: absolute;
-            left: 50px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.8);
-            padding: 5px 12px;
-            border-radius: 10px;
-            font-size: 10px;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: 0.3s;
-        }
-
-        .audio-control:hover::after {
-            opacity: 1;
-        }
     </style>
 </head>
 <body>
 
     <div class="stars-container" id="stars"></div>
 
-    <!-- El archivo debe llamarse musica.mp3 -->
     <audio id="bg-music" loop>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
@@ -304,7 +287,7 @@
         <div class="intro-name-container">
             <h1 class="name-intro vivi-name-effect">Vivi</h1>
         </div>
-        <button class="btn-enter" onclick="startExperience()">Entrar al Espacio</button>
+        <button class="btn-enter" onclick="startExperience()">Entrar</button>
     </div>
 
     <div id="main-content">
@@ -338,7 +321,28 @@
             <div class="pt-8 border-t border-white/10">
                 <h3 class="text-white text-[10px] uppercase tracking-[0.4em] mb-6 opacity-60">Amigos</h3>
                 
-                <div class="grid grid-cols-3 gap-y-8 gap-x-2">
+                <div class="grid grid-cols-3 sm:grid-cols-4 gap-y-8 gap-x-2">
+                    <!-- !F -->
+                    <div class="flex flex-col items-center">
+                        <div class="friend-circle">
+                            <img src="https://xatimg.com/image/HcvrlYj9ACNf.jpg" alt="!F" class="friend-img">
+                            <div id="status-ibla" class="friend-status-dot"></div>
+                        </div>
+                        <span class="text-white text-[10px] font-semibold mb-1">!F</span>
+                        <a href="https://xat.me/ibla" target="_blank" class="friend-link">Perfil</a>
+                    </div>
+
+                    <!-- Alex -->
+                    <div class="flex flex-col items-center">
+                        <div class="friend-circle">
+                            <img src="https://xatimg.com/image/eXsPZcbRNcGO.gif" alt="Alex" class="friend-img">
+                            <div id="status-iAlexander24" class="friend-status-dot"></div>
+                        </div>
+                        <span class="text-white text-[10px] font-semibold mb-1">Alex</span>
+                        <a href="https://xat.me/iAlexander24" target="_blank" class="friend-link">Perfil</a>
+                    </div>
+
+                    <!-- Chris -->
                     <div class="flex flex-col items-center">
                         <div class="friend-circle">
                             <img src="https://u.cubeupload.com/dchris28/251101195929906.png" alt="Chris" class="friend-img">
@@ -348,6 +352,7 @@
                         <a href="https://xat.me/chriis" target="_blank" class="friend-link">Perfil</a>
                     </div>
 
+                    <!-- Pelón -->
                     <div class="flex flex-col items-center">
                         <div class="friend-circle">
                             <img src="https://xat.com/web_gear/chat/av/254.png" alt="Pelón" class="friend-img">
@@ -357,6 +362,7 @@
                         <a href="https://xat.me/xat1558772617" target="_blank" class="friend-link">Perfil</a>
                     </div>
 
+                    <!-- Gaab -->
                     <div class="flex flex-col items-center">
                         <div class="friend-circle">
                             <img src="https://xatimg.com/image/zSbrIMXE3fq9.jpg" alt="Gaab" class="friend-img">
@@ -365,12 +371,33 @@
                         <span class="text-white text-[10px] font-semibold mb-1">Gaab</span>
                         <a href="https://xat.me/gaab" target="_blank" class="friend-link">Perfil</a>
                     </div>
+
+                    <!-- Fabi -->
+                    <div class="flex flex-col items-center">
+                        <div class="friend-circle">
+                            <img src="https://xatimg.com/image/nW55YBWRcnQW.jpg" alt="Fabi" class="friend-img">
+                            <div id="status-Fabiii9217" class="friend-status-dot"></div>
+                        </div>
+                        <span class="text-white text-[10px] font-semibold mb-1">Fabi</span>
+                        <a href="https://xat.me/Fabiii9217" target="_blank" class="friend-link">Perfil</a>
+                    </div>
+
+                    <!-- Rayko -->
+                    <div class="flex flex-col items-center">
+                        <div class="friend-circle">
+                            <img src="https://xatimg.com/image/o6gySJoQm3bX.png" alt="Rayko" class="friend-img">
+                            <div id="status-rayko" class="friend-status-dot"></div>
+                        </div>
+                        <span class="text-white text-[10px] font-semibold mb-1">Rayko</span>
+                        <a href="https://xat.me/rayko" target="_blank" class="friend-link">Perfil</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Función para actualizar estados desde la API
         async function updateStatus(username, elementId) {
             const dot = document.getElementById(elementId);
             if (!dot) return;
@@ -391,9 +418,13 @@
 
         function fetchAllStatuses() {
             updateStatus('iviV', 'status-iviV');
+            updateStatus('ibla', 'status-ibla');
+            updateStatus('iAlexander24', 'status-iAlexander24');
             updateStatus('chriis', 'status-chriis');
             updateStatus('xat1558772617', 'status-xat1558772617');
             updateStatus('gaab', 'status-gaab');
+            updateStatus('Fabiii9217', 'status-Fabiii9217');
+            updateStatus('rayko', 'status-rayko');
         }
 
         function createStars() {
@@ -422,9 +453,8 @@
             const intro = document.getElementById('intro');
             const main = document.getElementById('main-content');
             
-            // Reproducción automática al hacer clic en entrar
             audio.play().catch((err) => {
-                console.warn("La reproducción automática falló:", err);
+                console.warn("Reproducción automática bloqueada:", err);
             });
 
             intro.style.opacity = '0';
@@ -444,7 +474,7 @@
 
         window.onload = () => {
             createStars();
-            setInterval(fetchAllStatuses, 120000);
+            setInterval(fetchAllStatuses, 120000); // Actualizar cada 2 min
         };
     </script>
 </body>
